@@ -1,0 +1,538 @@
+:root{
+    --main-bg-color: #fff;
+    --main-bg-inverse: #212121;
+
+    --navbar-color: ##737373;
+
+    --accent-color-400: #00DF85;
+    --accent-color-300: #00a161;
+
+    --white: #fff;
+    --black: #000;
+
+    --ff-h1: "forma-djr-banner", "Verdana",sans-serif;
+    --ff-p: "articulat-cf", "Courier New", sans-serif;
+
+    --fw-1: 300;
+    --fw-2: 400;
+    --fw-3: 600;
+    --fw-4: 800;
+    --fw-primary-body: var
+
+    --fs-875: .875rem;
+    --fs-1: 1rem;
+    --fs-15: 1.5rem;
+    --fs-2: 2rem;
+    --fs-25: 2.5rem;
+    --fs-3: 3rem;
+    --fs-35: 3.5rem;
+    --fs-4: 4rem;
+
+    --pw: 1800px;
+
+    --borderWidth: 3px;
+}
+
+/* Proxima Nova Heading, URW Form Body */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+*{
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: #212121;
+  background: var(--main-bg-inverse);
+}
+
+html, 
+body{
+    height: 100%;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1{
+  font-family: var(--ff-h1);
+  font-weight: bold;
+  letter-spacing: 3px;
+  -webkit-text-stroke: 1px white;
+  font-size: 5rem;
+  color: #fff0;
+}
+
+h1 span {
+  color: white;
+  -webkit-text-stroke: 0px;
+}
+
+h2{
+  font-family: var(--ff-p);
+  font-size: 1.5rem;
+  color: var(--white);
+  font-weight: 200;
+}
+
+p, a{
+    font-family: var(--ff-p);
+    font-weight: 200;
+    color: var(--white);
+    font-size: 1.3rem;
+}
+
+a{
+  text-decoration: none;
+}
+
+.section-title{
+  margin-top: 100px;
+}
+
+/* SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* MAIN WRAPPER */
+
+/* NAVBAR */
+
+.navbar-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  position: sticky;
+  max-width: 100%;
+  width: 100%;
+  min-width: 100px;
+  height: 100px;
+  background: #212121;
+  top: 0;
+  z-index: 500;
+}
+
+.navbar-nav{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-contents{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar-contents li{
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-a {
+  font-family: var(--ff-h1);
+  font-size: 1rem;
+  letter-spacing: 9px;
+  font-weight: 500;
+  opacity: 20%;
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-a:hover{
+  opacity: 100%;
+  transition: .2s;
+  background: #1b1b1b;
+  border: 1px solid white;
+}
+
+
+.navbar-wrapper path{
+    fill: white;
+}
+
+/* BURGER MENU */
+
+.burger{
+  display: none;
+  cursor: pointer;
+}
+
+.burger-topping{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  background-color: #212121;
+}
+
+@media(max-width: 1160px){
+    .burger{
+      display: block;
+      position: fixed;
+      padding: 1rem;
+      background: white;
+      right: 10%;
+      bottom: 4%;
+    }
+
+    .burger.active .burger-topping:nth-child(2){
+      opacity: 0;
+    }
+
+    .burger.active .burger-topping:nth-child(1){
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .burger.active .burger-topping:nth-child(3){
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar-wrapper{
+      position: fixed;
+      left: -100%;
+    }
+
+    .navbar-contents{
+      position: fixed;
+      left: -100%;
+      top: 0;
+      gap: 0;
+      flex-direction: column;
+      background-color: #212121;
+      width: 100%;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .navbar-contents.active{
+      left: 0;
+    }
+
+}
+
+
+
+/* WELCOME SECTION */
+
+.welcome-section{
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.headshot-wrapper{
+  max-width: 300px;
+  width: 250px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.headshot{
+  border-radius: 5px;
+}
+
+.headshot-wrapper:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #ffffff, #212121, #ffffff, #212121, #ffffff, #212121, #ffffff, #212121);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 15s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+.shopify-partner {
+  max-width: 400px;
+  margin-top: 30px;
+}
+
+/* PROJECTS SECTION */
+
+.portfolio-projects-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.portfolio-cards {
+  max-width: 1600px;
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-card-wrapper {
+  max-width: 250px;
+  min-width: 150px;
+  margin: 0;
+  flex: 0 1 16.66%;
+  padding: 1rem;
+  
+  @media only screen and (max-width: 1200px) {
+      flex-basis: 20%;
+  }
+  
+  @media only screen and (max-width: 768px) {
+      flex-basis: 25%;
+  }
+}
+
+.portfolio-card {
+  padding: 0 0 150% 0;
+  background: url('') no-repeat transparent 50% 50%;
+  background-size: cover;
+  border: 1px solid rgba(0, 0, 0, 0.25); // Wanted to add a little extra but subtle depth to the card.
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 10px -2px rgba(0, 0, 0, 0.5);
+  transition: all ease 0.28s 0.01s;
+  transform: perspective(222px) translate3d(0px, 5px, 0px) rotateX(0deg);
+  perspective-origin: top;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  
+  &::before {
+      width: 100%;
+      height: 172%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content:"";
+      background-image: linear-gradient(35deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.07) 51.5%, rgba(255, 255, 255, 0.15) 54%, rgba(255, 255, 255, 0.15) 100%);
+      
+      transform: translateY(-36%);
+      opacity: 0.5;
+      transition: all ease 0.28s 0.01s;
+  }
+  
+  &:hover,
+  &:focus {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transform: perspective(222px) translate3d(0px, 0px, 8px) rotateX(3deg);
+      transform-origin: center;
+      box-shadow: 0 14px 16px -2px rgba(0, 0, 0, 0.5);
+      
+      &::before {
+          opacity: 1;
+          transform: translateY(-20%);
+      }
+  }
+  
+  &:active {
+      filter: brightness(80%) contrast(110%);
+  }
+}
+
+/* EXPERIENCE SECTION */
+
+.exp-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.exp-header {
+  text-align: center;
+}
+
+.exp-company, .exp-dates{
+  font-weight: 700;
+}
+
+.exp-wrapper {
+  max-width: 1289px;
+  margin: 0rem 3rem;
+}
+
+hr {
+  width: 100%;
+  max-width: 1289px;
+  margin: 3rem;
+  border-bottom: 1px solid #4a4a4abf;
+}
+
+.exp-title{
+  font-size: 2.5rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0;
+  color: var(--white);
+}
+
+.exp-description{
+  text-align: center;
+}
+
+.exp-description-list li{
+  color: #fff;
+  font-family: var(--ff-p);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+/* CONTACT SECTION */
+
+.contact-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.contact-wrapper p{
+  text-align: center;
+}
+
+.emailphone-header{
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 2rem;
+}
+
+/* MEDIA QUERIES */
+
+@media(max-width:850px){
+  .body-flex {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  h1{
+    font-size: 3.5rem;
+  }
+
+  h2{
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .welcome-section h1{
+    font-size:2.5rem;
+  }
+
+  .shopify-partner{
+    max-width: 80%;
+  }
+
+  .exp-title{
+    font-size: 2rem;
+  }
+}
+
+/* ANIMATIONS */
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
